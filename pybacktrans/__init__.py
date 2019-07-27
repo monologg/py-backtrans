@@ -1,1 +1,1 @@
-from pybacktrans.translator import Translator
+from pybacktrans.translator import BackTranslator
