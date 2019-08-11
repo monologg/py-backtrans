@@ -3,7 +3,7 @@ import nltk
 from nltk.tokenize import sent_tokenize
 import time
 
-from constants import MAX_LEN
+from constants import TEXT_MAX_LENGTH
 
 try:
     nltk.data.find('tokenizers/punkt')
@@ -38,7 +38,7 @@ class BackTranslator(object):
             return back_text
 
     def _check_length_over_max(self, text):
-        if len(text.encode('utf-8')) > MAX_LEN:
+        if len(text.encode('utf-8')) > TEXT_MAX_LENGTH:
             return True
         return False
 
@@ -49,7 +49,7 @@ class BackTranslator(object):
         input_chunk_lst = []
         chunk = ""
         for sentence in sentence_lst:
-            if len(chunk.rstrip()) + len(sentence) > MAX_LEN:
+            if len(chunk.rstrip()) + len(sentence) > TEXT_MAX_LENGTH:
                 input_chunk_lst.append(chunk.rstrip())
                 chunk = ""
             else:

@@ -114,4 +114,4 @@ LANGUAGE_MAPPING = {
     'kr': 'jp'
 }
 
-MAX_LEN = 5000
+TEXT_MAX_LENGTH = 5000
