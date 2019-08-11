@@ -1,8 +1,36 @@
-# py-backtrans
+# Py-Backtrans
 
 Python library for backtranslation
 
-## Ideas
+## TODO
 
-- 만약 src-mid 리스트에 없는 것이면 무조건 en을 mid로 설정하기
-  - 구글 번역기에서는 영어와 관련된 데이터가 가장 좋을 듯
+- 여기에 간단히 image 넣기
+- QANet 논문 레퍼런스 달기
+
+## Installation
+
+```bash
+$ pip install pybacktrans
+```
+
+## Usage
+
+### Basic Usage
+
+```python
+>>> from pybacktrans import BackTranslator
+>>> translator = BackTranslator()
+>>> result = translator.backtranslate('Good Morning', src='en', mid='fr')
+>>> result
+# <BackTranslated src=en, mid=fr, text=Hello>
+>>> result.src_text
+# 'Good Morning'
+>>> result.mid_text
+# 'Bonjour'
+>>> result.text
+# 'Hello'
+```
+
+## Reference
+
+- [googletrans](https://github.com/ssut/py-googletrans)
