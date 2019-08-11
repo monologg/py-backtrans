@@ -113,3 +113,5 @@ LANGUAGE_MAPPING = {
     'en': 'fr',
     'kr': 'jp'
 }
+
+MAX_LEN = 5000
