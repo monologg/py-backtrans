@@ -29,3 +29,4 @@ $ pip install pybacktrans
 ## Reference
 
 - [googletrans](https://github.com/ssut/py-googletrans)
+- [QANet](https://arxiv.org/abs/1804.09541)

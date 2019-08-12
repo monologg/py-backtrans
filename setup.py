@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pybacktrans',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/monologg/py-backtrans',
     license='MIT',
     author='Jangwon Park',

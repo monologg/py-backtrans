@@ -119,7 +119,7 @@ class BackTranslator(object):
         input_chunk_lst = []
         chunk = ""
         for sentence in sentence_lst:
-            if len(chunk.rstrip()) + len(sentence) > TEXT_MAX_LENGTH:
+            if len((chunk.rstrip() + ' ' + sentence).encode('utf-8')) > TEXT_MAX_LENGTH:
                 input_chunk_lst.append(chunk.rstrip())
                 chunk = ""
             else:
