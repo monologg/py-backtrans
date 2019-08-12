@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='kakaotrans',
+    name='pybacktrans',
     version='0.1.0',
     url='https://github.com/monologg/py-backtrans',
     license='MIT',

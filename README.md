@@ -2,13 +2,6 @@
 
 Python library for backtranslation
 
-## TODO
-
-- google translate를 이용하여 진행한다는 것을 기록
-- lang setting 인자에 관한 설명 간단히 달기
-- 여기에 간단히 image 넣기
-- QANet 논문 레퍼런스 달기
-
 ## Installation
 
 ```bash
