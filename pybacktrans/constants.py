@@ -110,12 +110,3 @@ LANGUAGES = {
 LANGCODES = dict(map(reversed, LANGUAGES.items()))
 
 TEXT_MAX_LENGTH = 5000
-
-
-if __name__ == "__main__":
-    src = 'tt'
-    if src not in LANGUAGES:
-        print(123)
-
-    if 'en' in LANGUAGES:
-        print(123)
