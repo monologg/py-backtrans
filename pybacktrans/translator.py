@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import time
 from googletrans import Translator
 import nltk
 from nltk.tokenize import sent_tokenize
@@ -24,7 +25,7 @@ class BackTranslator(object):
     def __init__(self):
         self.translator = Translator()  # Google translator object
 
-    def backtranslate(self, text, src=None, mid=None):
+    def backtranslate(self, text, src=None, mid=None, interval_time=0):
         """
         Backtranslate the text (src lang -> mid lang -> src lang)
 
@@ -38,6 +39,9 @@ class BackTranslator(object):
         :param src: Source language. You can set as 'auto' for auto detecting the source language.
 
         :param mid: Middle language.
+
+        :param interval_time: Interval_time between first translation and second translation. 
+                              The unit is seconds.
 
         :rtype BackTranslated
 
@@ -75,7 +79,11 @@ class BackTranslator(object):
         if src == mid:
             raise ValueError("Source language({src}) and Middle Language({mid}) cannot be same".format(src=src, mid=mid))
 
-            # Check whether the text is less than 5000(= MAX_LEN)
+        # Check whether interval time is non-negative
+        if interval_time < 0:
+            raise ValueError("Interval time length must be non-negative")
+
+        # Check whether the text is less than 5000(= MAX_LEN)
         if self._check_length_over_max(text):
             # Seperate the full text into multiple sentences
             src_chunk_lst = self._make_chunks(self._split_into_sentences(text))
@@ -83,6 +91,8 @@ class BackTranslator(object):
             for chunk in src_chunk_lst:
                 mid_text = mid_text + self.translator.translate(chunk, src=src, dest=mid).text + " "
             mid_text = mid_text.rstrip()
+
+            time.sleep(interval_time)  # Sleep between translation
 
             # Mid text also need check for length
             mid_chuck_lst = self._make_chunks(self._split_into_sentences(mid_text))
@@ -93,6 +103,7 @@ class BackTranslator(object):
             back_text = back_text.rstrip()
         else:
             mid_text = self.translator.translate(text, src=src, dest=mid).text
+            time.sleep(interval_time)  # Sleep between translation
             back_text = self.translator.translate(mid_text, src=mid, dest=src).text
 
         # Put final values into a new BackTranlated object
