@@ -1,5 +1,9 @@
 # Py-Backtrans
 
+[![Release](https://img.shields.io/badge/release-v0.1.4-green)](https://pypi.org/project/pybacktrans/)
+[![Downloads](https://pepy.tech/badge/pybacktrans)](https://pepy.tech/project/pybacktrans)
+[![license](https://img.shields.io/badge/license-Apache%202.0-red)](https://github.com/monologg/pybacktrans/blob/master/LICENSE)
+
 Python library for backtranslation
 
 ## Installation
